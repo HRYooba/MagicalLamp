@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    video.load("movies/dog.mov");
+    video.load("movies/dogCG.mp4");
     video.setLoopState(OF_LOOP_NONE);
     video.play();
     
@@ -25,11 +25,13 @@ void ofApp::setup(){
     
     fboSubtraction.allocate(videoWidth, videoHeight);
     
-    exp.setup(videoWidth, videoHeight, 60);
+    exp.setup(videoWidth, videoHeight, 24);
     exp.setOutputDir("out");
     exp.setOverwriteSequence(true);
     exp.setAutoExit(true);
     exp.startExport();
+    
+    ofSetFrameRate(24);
 }
 
 //--------------------------------------------------------------
@@ -113,18 +115,6 @@ void ofApp::keyPressed(int key){
         texBaseGray = fboBaseGray.getTexture();
     }
 #endif
-    
-    // export png file
-    if (key == ' ') {
-        for (int i = 0; i < screenBuffer.size(); i++) {
-            ofImage img;
-            ofPixels p;
-            screenBuffer[i].readToPixels(p);
-            img.setFromPixels(p);
-            img.save("images/" + ofToString(i) + ".png", OF_IMAGE_QUALITY_BEST);
-        }
-        cout << "complete!!" << endl;
-    }
 }
 
 //--------------------------------------------------------------

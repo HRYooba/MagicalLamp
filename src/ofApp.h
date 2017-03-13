@@ -47,7 +47,5 @@ class ofApp : public ofBaseApp{
     ofShader shSubtraction;
     ofFbo fboSubtraction;
     
-    vector <ofTexture> screenBuffer;
-    
     ofxExportImageSequence exp;
 };

@@ -44,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		15B031300AA25D40E645FD49 /* ofxExportImageSequence.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxExportImageSequence.cpp; path = ../../../addons/ofxExportImageSequence/src/ofxExportImageSequence.cpp; sourceTree = SOURCE_ROOT; };
+		87737E351E76A3740096490F /* grayscale.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = grayscale.frag; sourceTree = "<group>"; };
+		87737E361E76A3740096490F /* subtraction.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = subtraction.frag; sourceTree = "<group>"; };
 		B9CD2548D97BB4793FD87D3E /* ofxExportImageSequence.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxExportImageSequence.h; path = ../../../addons/ofxExportImageSequence/src/ofxExportImageSequence.h; sourceTree = SOURCE_ROOT; };
 		C0BD6E8A4662F8AD99DCCFD8 /* tiffvers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tiffvers.h; path = ../../../addons/ofxExportImageSequence/libs/libtiff/include/tiffvers.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
@@ -93,6 +95,16 @@
 			);
 			name = libs;
 			sourceTree = "<group>";
+		};
+		87737E341E76A3740096490F /* shaders */ = {
+			isa = PBXGroup;
+			children = (
+				87737E351E76A3740096490F /* grayscale.frag */,
+				87737E361E76A3740096490F /* subtraction.frag */,
+			);
+			name = shaders;
+			path = bin/data/shaders;
+			sourceTree = SOURCE_ROOT;
 		};
 		B581B1A6953DDB9EE29AD77D /* ofxExportImageSequence */ = {
 			isa = PBXGroup;
@@ -144,6 +156,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				87737E341E76A3740096490F /* shaders */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
