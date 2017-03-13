@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    video.load("movies/dog.mp4");
+    video.load("movies/dog.mov");
     video.setLoopState(OF_LOOP_NONE);
     video.play();
     
@@ -24,6 +24,12 @@ void ofApp::setup(){
     shSubtraction.load("", "shaders/subtraction.frag");
     
     fboSubtraction.allocate(videoWidth, videoHeight);
+    
+    exp.setup(videoWidth, videoHeight, 60);
+    exp.setOutputDir("out");
+    exp.setOverwriteSequence(true);
+    exp.setAutoExit(true);
+    exp.startExport();
 }
 
 //--------------------------------------------------------------
@@ -75,15 +81,15 @@ void ofApp::update(){
     
     // temp screen image to buffer
     if (video.isPlaying()) {
-        ofPixels temp;
-        fboSubtraction.readToPixels(temp);
-        screenBuffer.push_back(temp);
+        exp.begin();
+        fboSubtraction.draw(0, 0);
+        exp.end();
     }
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    fboSubtraction.draw(0, 0);
+    exp.draw(0, 0);
 }
 
 //--------------------------------------------------------------
@@ -112,9 +118,9 @@ void ofApp::keyPressed(int key){
     if (key == ' ') {
         for (int i = 0; i < screenBuffer.size(); i++) {
             ofImage img;
-//            ofPixels p;
-//            screenBuffer[i].readToPixels(p);
-            img.setFromPixels(screenBuffer[i]);
+            ofPixels p;
+            screenBuffer[i].readToPixels(p);
+            img.setFromPixels(p);
             img.save("images/" + ofToString(i) + ".png", OF_IMAGE_QUALITY_BEST);
         }
         cout << "complete!!" << endl;

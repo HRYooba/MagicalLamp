@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A71FA1AD0106AB313E49EABB /* ofxExportImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 15B031300AA25D40E645FD49 /* ofxExportImageSequence.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
 		E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */; };
@@ -42,16 +43,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		87737E2D1E7657970096490F /* grayscale.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = grayscale.frag; sourceTree = "<group>"; };
-		87737E2E1E7657970096490F /* subtraction.frag */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = subtraction.frag; sourceTree = "<group>"; };
+		15B031300AA25D40E645FD49 /* ofxExportImageSequence.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxExportImageSequence.cpp; path = ../../../addons/ofxExportImageSequence/src/ofxExportImageSequence.cpp; sourceTree = SOURCE_ROOT; };
+		B9CD2548D97BB4793FD87D3E /* ofxExportImageSequence.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = ofxExportImageSequence.h; path = ../../../addons/ofxExportImageSequence/src/ofxExportImageSequence.h; sourceTree = SOURCE_ROOT; };
+		C0BD6E8A4662F8AD99DCCFD8 /* tiffvers.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tiffvers.h; path = ../../../addons/ofxExportImageSequence/libs/libtiff/include/tiffvers.h; sourceTree = SOURCE_ROOT; };
 		E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = openFrameworksLib.xcodeproj; path = ../../../libs/openFrameworksCompiled/project/osx/openFrameworksLib.xcodeproj; sourceTree = SOURCE_ROOT; };
 		E4B69B5B0A3A1756003C02F2 /* MagicalLampDebug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicalLampDebug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4B69E1D0A3A1BDC003C02F2 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
 		E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofApp.cpp; path = src/ofApp.cpp; sourceTree = SOURCE_ROOT; };
-		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
+		E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = ofApp.h; path = src/ofApp.h; sourceTree = SOURCE_ROOT; };
 		E4B6FCAD0C3E899E008CF71C /* openFrameworks-Info.plist */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = text.plist.xml; path = "openFrameworks-Info.plist"; sourceTree = "<group>"; };
 		E4EB691F138AFCF100A09F29 /* CoreOF.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = CoreOF.xcconfig; path = ../../../libs/openFrameworksCompiled/project/osx/CoreOF.xcconfig; sourceTree = SOURCE_ROOT; };
 		E4EB6923138AFD0F00A09F29 /* Project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Project.xcconfig; sourceTree = "<group>"; };
+		F495DA7C940F44ED70A75F90 /* tiffio.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tiffio.h; path = ../../../addons/ofxExportImageSequence/libs/libtiff/include/tiffio.h; sourceTree = SOURCE_ROOT; };
+		F937B08E2FDA5F48FDFC6E93 /* tiff.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tiff.h; path = ../../../addons/ofxExportImageSequence/libs/libtiff/include/tiff.h; sourceTree = SOURCE_ROOT; };
+		FE30765CEA4C74C6FB2B34CF /* tiffconf.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tiffconf.h; path = ../../../addons/ofxExportImageSequence/libs/libtiff/include/tiffconf.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49A11EF5C045749646612B8A /* libtiff */ = {
+			isa = PBXGroup;
+			children = (
+				EF3A6CDD8D5C57A311488FDB /* include */,
+			);
+			name = libtiff;
+			sourceTree = "<group>";
+		};
 		6948EE371B920CB800B5AC1A /* local_addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -73,21 +86,38 @@
 			name = local_addons;
 			sourceTree = "<group>";
 		};
-		87737E2C1E7657970096490F /* shaders */ = {
+		721062948A17F20907BDF409 /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				87737E2D1E7657970096490F /* grayscale.frag */,
-				87737E2E1E7657970096490F /* subtraction.frag */,
+				49A11EF5C045749646612B8A /* libtiff */,
 			);
-			name = shaders;
-			path = bin/data/shaders;
-			sourceTree = SOURCE_ROOT;
+			name = libs;
+			sourceTree = "<group>";
+		};
+		B581B1A6953DDB9EE29AD77D /* ofxExportImageSequence */ = {
+			isa = PBXGroup;
+			children = (
+				DA9D107FE1626582171AC5A3 /* src */,
+				721062948A17F20907BDF409 /* libs */,
+			);
+			name = ofxExportImageSequence;
+			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				B581B1A6953DDB9EE29AD77D /* ofxExportImageSequence */,
 			);
 			name = addons;
+			sourceTree = "<group>";
+		};
+		DA9D107FE1626582171AC5A3 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				15B031300AA25D40E645FD49 /* ofxExportImageSequence.cpp */,
+				B9CD2548D97BB4793FD87D3E /* ofxExportImageSequence.h */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 		E4328144138ABC890047C5CB /* Products */ = {
@@ -114,7 +144,6 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				87737E2C1E7657970096490F /* shaders */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				E4B69E1E0A3A1BDC003C02F2 /* ofApp.cpp */,
 				E4B69E1F0A3A1BDC003C02F2 /* ofApp.h */,
@@ -129,6 +158,17 @@
 				E4328143138ABC890047C5CB /* openFrameworksLib.xcodeproj */,
 			);
 			name = openFrameworks;
+			sourceTree = "<group>";
+		};
+		EF3A6CDD8D5C57A311488FDB /* include */ = {
+			isa = PBXGroup;
+			children = (
+				F937B08E2FDA5F48FDFC6E93 /* tiff.h */,
+				FE30765CEA4C74C6FB2B34CF /* tiffconf.h */,
+				F495DA7C940F44ED70A75F90 /* tiffio.h */,
+				C0BD6E8A4662F8AD99DCCFD8 /* tiffvers.h */,
+			);
+			name = include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +260,7 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
+				A71FA1AD0106AB313E49EABB /* ofxExportImageSequence.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,11 +294,26 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxExportImageSequence/libs,
+					../../../addons/ofxExportImageSequence/libs/libtiff,
+					../../../addons/ofxExportImageSequence/libs/libtiff/include,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx,
+					../../../addons/ofxExportImageSequence/src,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-mtune=native",
+				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx/libtiff.a,
 				);
 				SDKROOT = macosx;
 			};
@@ -283,10 +339,25 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = NO;
 				GCC_WARN_UNUSED_VALUE = NO;
 				GCC_WARN_UNUSED_VARIABLE = NO;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxExportImageSequence/libs,
+					../../../addons/ofxExportImageSequence/libs/libtiff,
+					../../../addons/ofxExportImageSequence/libs/libtiff/include,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx,
+					../../../addons/ofxExportImageSequence/src,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CPLUSPLUSFLAGS = (
 					"-D__MACOSX_CORE__",
 					"-mtune=native",
+				);
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx/libtiff.a,
 				);
 				SDKROOT = macosx;
 			};
@@ -306,11 +377,26 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxExportImageSequence/libs,
+					../../../addons/ofxExportImageSequence/libs/libtiff,
+					../../../addons/ofxExportImageSequence/libs/libtiff/include,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx,
+					../../../addons/ofxExportImageSequence/src,
+				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx/libtiff.a,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)Debug";
 				WRAPPER_EXTENSION = app;
 			};
@@ -329,11 +415,26 @@
 				FRAMEWORK_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../../libs/glut/lib/osx\"";
 				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
 				GCC_MODEL_TUNING = NONE;
+				HEADER_SEARCH_PATHS = (
+					"$(OF_CORE_HEADERS)",
+					src,
+					../../../addons/ofxExportImageSequence/libs,
+					../../../addons/ofxExportImageSequence/libs/libtiff,
+					../../../addons/ofxExportImageSequence/libs/libtiff/include,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib,
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx,
+					../../../addons/ofxExportImageSequence/src,
+				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
 				INFOPLIST_FILE = "openFrameworks-Info.plist";
 				INSTALL_PATH = /Applications;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_LDFLAGS = (
+					"$(OF_CORE_FRAMEWORKS)",
+					"$(OF_CORE_LIBS)",
+					../../../addons/ofxExportImageSequence/libs/libtiff/lib/osx/libtiff.a,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 				baseConfigurationReference = E4EB6923138AFD0F00A09F29;

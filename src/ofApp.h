@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxExportImageSequence.h"
 
 #define MODE_PREVIOUS_FRAME
 
@@ -46,5 +47,7 @@ class ofApp : public ofBaseApp{
     ofShader shSubtraction;
     ofFbo fboSubtraction;
     
-    vector <ofPixels> screenBuffer;
+    vector <ofTexture> screenBuffer;
+    
+    ofxExportImageSequence exp;
 };
