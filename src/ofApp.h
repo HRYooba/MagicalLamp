@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 
+#define MODE_PREVIOUS_FRAME
+
 class ofApp : public ofBaseApp{
 
 	public:
@@ -26,19 +28,23 @@ class ofApp : public ofBaseApp{
 		
     ofVideoPlayer video;
     
+    // original
     ofTexture texVideo;
     ofTexture texVideoGray;
     ofFbo fboVideoGray;
     
+    // base subtraction
     ofTexture texBase;
     ofTexture texBaseGray;
     ofFbo fboBaseGray;
     
+    // buffer
     ofTexture texBuffer;
     ofFbo fboBuffer;
     
     ofShader shGlayScale;
     ofShader shSubtraction;
-    
     ofFbo fboSubtraction;
+    
+    vector <ofPixels> screenBuffer;
 };

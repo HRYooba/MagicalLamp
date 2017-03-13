@@ -2,8 +2,8 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    video.load("dog.mov");
-    video.setLoopState(OF_LOOP_NORMAL);
+    video.load("movies/dog.mov");
+    video.setLoopState(OF_LOOP_NONE);
     video.play();
     
     videoWidth = video.getWidth();
@@ -20,8 +20,8 @@ void ofApp::setup(){
     texBuffer.allocate(video.getPixels());
     fboBuffer.allocate(videoWidth, videoHeight);
     
-    shGlayScale.load("", "shader/grayscale.frag");
-    shSubtraction.load("", "shader/subtraction.frag");
+    shGlayScale.load("", "shaders/grayscale.frag");
+    shSubtraction.load("", "shaders/subtraction.frag");
     
     fboSubtraction.allocate(videoWidth, videoHeight);
 }
@@ -29,6 +29,10 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     video.update();
+    
+    if (!video.isFrameNew()) {
+        return;
+    }
     
     // convert video to texture
     texVideo.loadData(video.getPixels(), videoWidth, videoHeight, GL_RGB);
@@ -53,8 +57,7 @@ void ofApp::update(){
     shSubtraction.end();
     fboSubtraction.end();
     
-    // buffer
-    
+#ifdef MODE_PREVIOUS_FRAME
     // save base image
     texBuffer.loadData(video.getPixels(), videoWidth, videoHeight, GL_RGB);
     
@@ -68,6 +71,14 @@ void ofApp::update(){
     
     // convert fbo to texture
     texBaseGray = fboBuffer.getTexture();
+#endif
+    
+    // temp screen image to buffer
+    if (video.isPlaying()) {
+        ofPixels temp;
+        fboSubtraction.readToPixels(temp);
+        screenBuffer.push_back(temp);
+    }
 }
 
 //--------------------------------------------------------------
@@ -77,67 +88,85 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    // save base image
-    texBase.loadData(video.getPixels(), videoWidth, videoHeight, GL_RGB);
+#ifdef MODE_PREVIOUS_FRAME
+#else
+    // If you need a base frame
+    if (key == OF_KEY_RETURN) {
+        // save base image
+        texBase.loadData(video.getPixels(), videoWidth, videoHeight, GL_RGB);
+        
+        // base image graycale
+        fboBaseGray.begin();
+        shGlayScale.begin();
+        shGlayScale.setUniformTexture("u_tex", texBase, 0);
+        ofDrawRectangle(0, 0, videoWidth, videoHeight);
+        shGlayScale.end();
+        fboBaseGray.end();
+        
+        // convert fbo to texture
+        texBaseGray = fboBaseGray.getTexture();
+    }
+#endif
     
-    // base image graycale
-    fboBaseGray.begin();
-    shGlayScale.begin();
-    shGlayScale.setUniformTexture("u_tex", texBase, 0);
-    ofDrawRectangle(0, 0, videoWidth, videoHeight);
-    shGlayScale.end();
-    fboBaseGray.end();
-    
-    // convert fbo to texture
-    texBaseGray = fboBaseGray.getTexture();
+    // export png file
+    if (key == ' ') {
+        for (int i = 0; i < screenBuffer.size(); i++) {
+            ofImage img;
+//            ofPixels p;
+//            screenBuffer[i].readToPixels(p);
+            img.setFromPixels(screenBuffer[i]);
+            img.save("images/" + ofToString(i) + ".png", OF_IMAGE_QUALITY_BEST);
+        }
+        cout << "complete!!" << endl;
+    }
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y ){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseDragged(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::mouseExited(int x, int y){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::windowResized(int w, int h){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::gotMessage(ofMessage msg){
-
+    
 }
 
 //--------------------------------------------------------------
 void ofApp::dragEvent(ofDragInfo dragInfo){ 
-
+    
 }
