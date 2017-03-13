@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    video.load("movies/dog.mov");
+    video.load("movies/dog.mp4");
     video.setLoopState(OF_LOOP_NONE);
     video.play();
     
