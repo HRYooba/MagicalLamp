@@ -2,7 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    video.load("movies/dogCG.mp4");
+    video.load("movies/wii.mp4");
     video.setLoopState(OF_LOOP_NONE);
     video.play();
     
@@ -25,13 +25,13 @@ void ofApp::setup(){
     
     fboSubtraction.allocate(videoWidth, videoHeight);
     
-    exp.setup(videoWidth, videoHeight, 24);
+    exp.setup(videoWidth, videoHeight, 30);
     exp.setOutputDir("out");
     exp.setOverwriteSequence(true);
     exp.setAutoExit(true);
     exp.startExport();
     
-    ofSetFrameRate(24);
+    ofSetFrameRate(30);
 }
 
 //--------------------------------------------------------------
